@@ -3,11 +3,11 @@ import argparse
 from twilio.rest import Client
 
 parser = argparse.ArgumentParser(description="Send SMS messages")
-parser.add_argument("--account-sid", required=True)
-parser.add_argument("--auth-token", required=True)
-parser.add_argument("--from-file", required=True)
-parser.add_argument("--to-file", required=True)
-parser.add_argument("--message", required=True)
+parser.add_argument("--account-sid", required=True, help="Twilio account SID to authenticate with")
+parser.add_argument("--auth-token", required=True, help="Twilio auth token corresponding to the account SID")
+parser.add_argument("--from-file", required=True, help="Path to file with sender phone numbers (one per line)")
+parser.add_argument("--to-file", required=True, help="Path to file with recipient phone numbers (one per line)")
+parser.add_argument("--message", required=True, help="Text message body to send to each recipient")
 
 args = parser.parse_args()
 
