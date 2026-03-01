@@ -13,8 +13,10 @@ args = parser.parse_args()
 
 account_sid = args.account_sid
 auth_token = args.auth_token
-ourNumbers = [x.strip() for x in open(args.from_file).readlines() if x.strip()]
-recipients = [x.strip() for x in open(args.to_file).readlines() if x.strip()]
+with open(args.from_file) as from_f:
+    ourNumbers = [x.strip() for x in from_f if x.strip()]
+with open(args.to_file) as to_f:
+    recipients = [x.strip() for x in to_f if x.strip()]
 body = args.message
 
 numberIndex = 0
